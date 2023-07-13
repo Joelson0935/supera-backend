@@ -2,7 +2,13 @@
 
 ## Descrição 
 
-- Este teste consiste em construir uma camada de serviço, para uma operação muito realizada em bancos, para emissão de extrato bancário.
+- Esta API Contém em seu serviço apenas os métodos requisitados pelo processo seletivo em questão, 
+- para utilizar as buscas usando data, por se tratar de um tipo local-date-time, o método só funciona
+- caso use data e hora, do contrário será disparado erro 400, usei neste projeto o swagger para
+- documentar e testar a api, usei o recurso controller-advice para tratar erro de busca de objeto não 
+- encontrado. Para popular as tabelas no banco de dados em memória, como vocês mesmos me deram o sql,
+- então não precisei implementar o crud padrão no service pois entendo que o sql de vcs será suficiente,
+- fiz alterações no sql para adequar ao modelo que criei ok. 
 
 
 ## Como executar a aplicação 
