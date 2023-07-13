@@ -9,9 +9,10 @@ import org.springframework.stereotype.Service;
 import br.com.banco.modelos.Conta;
 import br.com.banco.modelos.Transferencia;
 import br.com.banco.repositorios.TransferenciaRepositorio;
+import br.com.banco.servicos.TransferenciaServico;
 
 @Service
-public class TransferenciaServicoImpl {
+public class TransferenciaServicoImpl implements TransferenciaServico {
 
 	@Autowired
 	private TransferenciaRepositorio repositorio;
@@ -19,22 +20,26 @@ public class TransferenciaServicoImpl {
 	@Autowired
 	private ContaServicoImpl contaServico;
 
+	@Override
 	public List<Transferencia> buscarTransferenciasPorNumeroConta(Integer id) {
 		Conta conta = contaServico.buscarPorId(id);
 		List<Transferencia> transferencias = conta.getTransferencias();
 		return transferencias;
 	}
 
+	@Override
 	public List<Transferencia> buscarTransferenciasPorPeriodoTempo(LocalDateTime dataInicial, LocalDateTime dataFinal) {
 		List<Transferencia> transferencias = repositorio.findByDataTransferencia(dataInicial, dataFinal);
 		return transferencias;
 	}
 
+	@Override
 	public List<Transferencia> buscarTransferenciasPorNomeOperador(String nomeOperadorTransacao) {
 		List<Transferencia> transferencias = repositorio.findByNomeOperadorTransacao(nomeOperadorTransacao);
 		return transferencias;
 	}
 
+	@Override
 	public List<Transferencia> buscarTransferenciasPorPeriodoTempoMaisNomeOperador(LocalDateTime dataInicial,
 			LocalDateTime dataFinal, String nomeOperador) {
 		List<Transferencia> transferencias = repositorio.findByDataTransferenciaAndNomeOperador(dataInicial, dataFinal,
