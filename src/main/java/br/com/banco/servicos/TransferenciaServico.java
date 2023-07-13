@@ -9,11 +9,11 @@ public interface TransferenciaServico {
 
 	List<Transferencia> buscarTransferenciasPorNumeroConta(Integer id);
 
-	List<Transferencia> buscarTransferenciasPorPeriodoTempo(LocalDateTime dataInicial, LocalDateTime dataFinal);
+	List<Transferencia> buscarTransferenciasPorPeriodoTransferencia(LocalDateTime dataInicial, LocalDateTime dataFinal);
 
 	List<Transferencia> buscarTransferenciasPorNomeOperador(String nomeOperadorTransacao);
 
-	List<Transferencia> buscarTransferenciasPorPeriodoTempoMaisNomeOperador(LocalDateTime dataInicial,
+	List<Transferencia> buscarTransferenciasPorPeriodoTransferenciaMaisNomeOperador(LocalDateTime dataInicial,
 			LocalDateTime dataFinal, String nomeOperador);
 
 }

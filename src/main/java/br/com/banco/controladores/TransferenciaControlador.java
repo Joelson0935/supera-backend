@@ -25,24 +25,24 @@ public class TransferenciaControlador {
 		return ResponseEntity.status(HttpStatus.OK).body(servico.buscarTransferenciasPorNumeroConta(id));
 	}
 
-	@GetMapping("/listar-por-numero-conta")
+	@GetMapping("/listar-por-periodo-transferencia")
 	public ResponseEntity<List<Transferencia>> buscarTransferenciasPorPeriodoTempo(LocalDateTime dataInicial,
 			LocalDateTime dataFinal) {
 		return ResponseEntity.status(HttpStatus.OK)
-				.body(servico.buscarTransferenciasPorPeriodoTempo(dataInicial, dataFinal));
+				.body(servico.buscarTransferenciasPorPeriodoTransferencia(dataInicial, dataFinal));
 	}
 
-	@GetMapping("/listar-por-numero-conta")
+	@GetMapping("/listar-por-nome-operador")
 	public ResponseEntity<List<Transferencia>> buscarTransferenciasPorNomeOperador(String nomeOperadorTransacao) {
 		return ResponseEntity.status(HttpStatus.OK)
 				.body(servico.buscarTransferenciasPorNomeOperador(nomeOperadorTransacao));
 	}
 
-	@GetMapping("/listar-por-numero-conta")
+	@GetMapping("/listar-por-periodo-transferencia-e-nome-operador")
 	public ResponseEntity<List<Transferencia>> buscarTransferenciasPorPeriodoTempoMaisNomeOperador(
 			LocalDateTime dataInicial, LocalDateTime dataFinal, String nomeOperador) {
 		return ResponseEntity.status(HttpStatus.OK).body(
-				servico.buscarTransferenciasPorPeriodoTempoMaisNomeOperador(dataInicial, dataFinal, nomeOperador));
+				servico.buscarTransferenciasPorPeriodoTransferenciaMaisNomeOperador(dataInicial, dataFinal, nomeOperador));
 	}
 
 }

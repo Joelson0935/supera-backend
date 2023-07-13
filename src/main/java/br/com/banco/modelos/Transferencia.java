@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
@@ -27,6 +28,7 @@ public class Transferencia implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
+	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
 	@Column(nullable = false)
 	private LocalDateTime dataTransferencia;
 
@@ -38,7 +40,7 @@ public class Transferencia implements Serializable {
 
 	@Column(length = 50)
 	private String nomeOperadorTransacao;
-	
+
 	@JsonProperty(access = Access.WRITE_ONLY)
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Conta conta;

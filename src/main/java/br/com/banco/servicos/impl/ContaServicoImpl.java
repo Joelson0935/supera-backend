@@ -3,6 +3,7 @@ package br.com.banco.servicos.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.com.banco.controladores.excessoes.ObjetoNaoEncontrado;
 import br.com.banco.modelos.Conta;
 import br.com.banco.repositorios.ContaRepositorio;
 
@@ -19,7 +20,7 @@ public class ContaServicoImpl {
 	}
 
 	public Conta buscarPorId(Integer id) {
-		Conta conta = repositorio.findById(id).orElseThrow();
+		Conta conta = repositorio.findById(id).orElseThrow(() -> new ObjetoNaoEncontrado("Objeto não encontrado"));
 		return conta;
 	}
 

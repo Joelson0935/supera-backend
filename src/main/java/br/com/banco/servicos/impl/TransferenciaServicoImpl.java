@@ -28,7 +28,7 @@ public class TransferenciaServicoImpl implements TransferenciaServico {
 	}
 
 	@Override
-	public List<Transferencia> buscarTransferenciasPorPeriodoTempo(LocalDateTime dataInicial, LocalDateTime dataFinal) {
+	public List<Transferencia> buscarTransferenciasPorPeriodoTransferencia(LocalDateTime dataInicial, LocalDateTime dataFinal) {
 		List<Transferencia> transferencias = repositorio.findByDataTransferencia(dataInicial, dataFinal);
 		return transferencias;
 	}
@@ -40,7 +40,7 @@ public class TransferenciaServicoImpl implements TransferenciaServico {
 	}
 
 	@Override
-	public List<Transferencia> buscarTransferenciasPorPeriodoTempoMaisNomeOperador(LocalDateTime dataInicial,
+	public List<Transferencia> buscarTransferenciasPorPeriodoTransferenciaMaisNomeOperador(LocalDateTime dataInicial,
 			LocalDateTime dataFinal, String nomeOperador) {
 		List<Transferencia> transferencias = repositorio.findByDataTransferenciaAndNomeOperador(dataInicial, dataFinal,
 				nomeOperador);
